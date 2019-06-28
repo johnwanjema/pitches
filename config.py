@@ -1,6 +1,6 @@
 
 class Config:
-    pass
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://username:password@localhost/watchlist'
 
 class ProdConfig(Config):
     pass
