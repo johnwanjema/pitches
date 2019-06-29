@@ -3,14 +3,12 @@ from . import main
 from .. import db
 from .forms import RegistrationForm,LoginForm
 from flask import render_template, flash,request
-from . import auth
 from flask import render_template,redirect,url_for
 from ..models import User
 from .forms import RegistrationForm
 from .. import db
-from ..email import mail_message
 from flask_login import login_user,logout_user,login_required
-from .forms import RegistrationForm,LoginForm
+
 
 
 @main.route('/')
