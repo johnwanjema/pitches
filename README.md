@@ -26,13 +26,12 @@ created application using
 
 ## Behaviour Driven Devlopment(BDD)
 
-| Behaviour | Input | Output                                              |
-| --------- | ----- | --------------------------------------------------- |
-| sign up   |       | Articles from that source are displayed             |
-| Log in    |       | Takes you to the full article on the source website |
-| upvote    |       | Takes you to the full article on the source website |
-| Downvote  |       | Takes you to the full article on the source website |
-
+| Behaviour | Input                     | Output                    |
+| --------- | ------------------------- | ------------------------- |
+| sign up   | email ,username ,password |                           |
+| Log in    | email adress,password     |                           |
+| upvote    |                           | upvote increases by one   |
+| Downvote  |                           | downvote increases by one |
 
 ## Support and contact details
 
