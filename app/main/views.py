@@ -5,9 +5,8 @@ from .forms import PitchForm
 from flask import render_template, flash,request
 from flask import render_template,redirect,url_for
 from ..models import User,Pitch
-
 from .. import db
-from flask_login import login_user,logout_user,login_required
+from flask_login import login_user,logout_user,login_required,current_user
 
 
 
@@ -17,28 +16,34 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
+    
     title = "pitches"
-    return render_template('index.html',title = title)
+    return render_template('index.html',title = title )
 
-@main.route('/pitch')
+
+@main.route('/pitches')
+def Newpitch():
+    pitches =  Pitch.query.all()
+
+    if pitch is None:
+        abort(404)
+    title = "pitches"
+    return render_template("pitch.html", pitches = pitches )
+
+
+@main.route('/pitch', methods = ['GET','POST'])
 @login_required
 def pitch():  
 
-    '''
-    View movie page function that returns the movie details page and its data
-    '''
     form = PitchForm()
     if form.validate_on_submit():
-           
+        pitch = Pitch(pitch = form.pitch.data,name = form.name.data,upvote = 0, downvote = 0)
+        db.session.add(pitch)
+        db.session.commit()
+        return redirect(url_for('main.index'))
+        title = "pitches"
+    return render_template('new_pitch.html',pitch_form = form)
 
-        # Updated pitch instance
-        new_pitch = Pitch(pitch = form.pitch.data,name = form.name.data)
-
-        #   save pitch method
-        # new_pitch.save_pitch()
-        # return redirect(url_for('.',id = movie.id ))
-
-    title = "pitches"
-    return render_template('pitch.html',pitch_form = form)
+    
 
 
