@@ -20,8 +20,9 @@ def index():
     title = "pitches"
     return render_template('index.html',title = title)
 
-@main.route('/movie/<int:pitch_id>')
-def pitch(pitch_id):
+@main.route('/pitch')
+@login_required
+def pitch():  
 
     '''
     View movie page function that returns the movie details page and its data
@@ -38,6 +39,6 @@ def pitch(pitch_id):
         # return redirect(url_for('.',id = movie.id ))
 
     title = "pitches"
-    return render_template('pitch.html',id = pitch_id,pitch_form = form)
+    return render_template('pitch.html',pitch_form = form)
 
 
