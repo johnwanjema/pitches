@@ -3,6 +3,7 @@ from wtforms import StringField,PasswordField,BooleanField,SubmitField,TextAreaF
 from wtforms.validators import Required
 from wtforms import ValidationError
 from wtforms.validators import Required,Email,EqualTo
+from ..models import Pitch
 
 class PitchForm(FlaskForm):
 
