@@ -70,5 +70,14 @@ class Pitch(db.Model):
     downvote = db.column(db.Integer)
     users = db.relationship('User',backref = 'pitch',lazy="dynamic")
 
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_pitch(cls,id):
+        reviews = Pitch.query.filter_by(user_id=id).all()
+        return pitch
+
     def __repr__(self):
         return f'Pitch {self.name}'
