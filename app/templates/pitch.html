@@ -11,7 +11,7 @@
                     <!-- Card image -->
                     <div class="view view-cascade gradient-card-header peach-gradient">
                         <!-- Title -->
-                        <h2 class="card-header-title mb-3">{{pitch.pitch_title| capitalize}}</h2>
+                        <h1 class="card-header-title mb-3">{{pitch.pitch_title| capitalize}}</h1>
                         <!-- Text -->
 
                     </div>
@@ -33,8 +33,15 @@
                         </div> <!-- Button -->
                     </div>
                     <!-- Card footer -->
-                    <div class="card-footer text-muted text-center">
-                        <p class="mb-0"><i class="fas fa-calendar mr-2"></i>{{pitch.posted}}</p>
+                    <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                        <ul class="list-unstyled list-inline font-small">
+                            <li class="list-inline-item pr-2 white-text"><i
+                                    class="far fa-clock pr-1"></i>{{pitch.posted}}
+                            </li>
+                            <li class="list-inline-item pr-2"><a href=" {{url_for('.post_comment',id= pitch.id)}}" class="white-text">
+                                <i class="far fa-comments pr-1"></i>Comments</a></li>
+
+                        </ul>
                     </div>
 
                 </div>

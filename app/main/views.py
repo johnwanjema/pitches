@@ -1,10 +1,10 @@
 from flask import render_template, request, redirect, url_for,abort
 from . import main
 from .. import db
-from .forms import PitchForm
+from .forms import PitchForm,CommentForm
 from flask import render_template, flash,request
 from flask import render_template,redirect,url_for
-from ..models import User,Pitch
+from ..models import User,Pitch,Comments
 from .. import db
 from flask_login import login_user,logout_user,login_required,current_user
 
@@ -25,11 +25,9 @@ def index():
 @login_required
 def pitches():
     pitches =  Pitch.query.all()
-
-
     if pitch is None:
-        abort(404)
-    title = "pitches"
+        return redirect(url_for('main.new_pitch'))
+        title = "pitches"
     return render_template("pitch.html", pitches = pitches )
 
 
@@ -45,6 +43,27 @@ def pitch():
         return redirect(url_for('main.index'))
         title = "pitches"
     return render_template('new_pitch.html',pitch_form = form)
+
+@main.route('/comment/<int:id>', methods=['GET', 'POST'])
+@login_required
+def post_comment(id):
+    
+    form = CommentForm()
+    title = 'post comment'
+    pitches = Pitch.query.filter_by(id=id).first()
+    comments = Comments.query.filter_by().all()
+
+    if pitches is None:
+         abort(404)
+
+    if form.validate_on_submit():
+        comment = form.comment.data
+        new_comment = Comments( comment = comment, user_id = current_user.id, pitch_id = pitches.id)
+        db.session.add(new_comment)
+        db.session.commit()     
+        
+
+    return render_template('post_comment.html', comment_form=form, title=title,comments=comments , pitches = pitches)
 
     
 

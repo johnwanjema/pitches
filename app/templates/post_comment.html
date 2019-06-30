@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+{% block content %}
+
+{% for comment in comments %}
+<div class="container">
+    <div style="overflow-x: hidden">
+        <div tyle="margin: 0 auto; margin-top: 6rem" class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <p>{{comment.comment}}</p><br>
+                <p>{{comment.posted}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+<div class="container">{{wtf.quick_form(comment_form)}}</div>
+
+
+{% endblock%}
