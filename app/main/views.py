@@ -60,8 +60,8 @@ def post_comment(id):
         comment = form.comment.data
         new_comment = Comments( comment = comment, user_id = current_user.id, pitch_id = pitches.id)
         db.session.add(new_comment)
-        db.session.commit()     
-        
+        db.session.commit()
+        return redirect(url_for('main.pitches'))
 
     return render_template('post_comment.html', comment_form=form, title=title,comments=comments , pitches = pitches)
 

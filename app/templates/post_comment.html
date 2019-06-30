@@ -4,14 +4,11 @@
 
 {% for comment in comments %}
 <div class="container">
-    <div style="overflow-x: hidden">
-        <div tyle="margin: 0 auto; margin-top: 6rem" class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <p>{{comment.comment}}</p><br>
-                <p>{{comment.posted}}</p>
-            </div>
-        </div>
+    <div class="alert alert-info" role="alert">
+        {{comment.comment}}
+        <p>{{comment.posted }}</p>
     </div>
+
 </div>
 
 {% endfor %}
