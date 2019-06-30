@@ -37,7 +37,7 @@ def pitch():
 
     form = PitchForm()
     if form.validate_on_submit():
-        pitch = Pitch(pitch = form.pitch.data,pitch_title = form.pitch_title.data,pitch_category = form.pitch_category.data ,pitch_upvotes = 0, pitch_downvotes = 0)
+        pitch = Pitch(pitch = form.pitch.data, user_id = current_user.id,pitch_title = form.pitch_title.data,pitch_category = form.pitch_category.data ,pitch_upvotes = 0, pitch_downvotes = 0)
         db.session.add(pitch)
         db.session.commit()
         return redirect(url_for('main.index'))
