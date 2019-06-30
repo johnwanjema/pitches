@@ -1,9 +1,44 @@
 {% extends 'base.html'%}
+
 {% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 {% endblock %}
+
 {% block content %}
+<!-- Card -->
+<div class="card card-cascade wider reverse">
+
+    <!-- Card image -->
+    <div class="view view-cascade overlay">
+        <img class="card-img-top" height="440px" src="https://www.smartcompany.com.au/content/uploads/2017/07/Mercedes.jpg" alt="Card image cap">
+        <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+        </a>
+    </div>
+
+    <!-- Card content -->
+    <div class="card-body card-body-cascade text-center">
+
+        <!-- Title -->
+        <h4 class="card-title"><strong>Wellcome To Pitch Perfect</strong></h4>
+            
+        <!-- Text -->
+        <p class="card-text">Where you can  submit your pitches and other users will vote on them 
+            and leave comments to give their feedback on them
+        </p>
+
+        <!-- Linkedin -->
+        <a class="px-2 fa-lg li-ic"><i class="fab fa-linkedin-in"></i></a>
+        <!-- Twitter -->
+        <a class="px-2 fa-lg tw-ic"><i class="fab fa-twitter"></i></a>
+        <!-- Dribbble -->
+        <a class="px-2 fa-lg fb-ic"><i class="fab fa-facebook-f"></i></a>
+
+    </div>
+
+</div>
+<!-- Card -->
 
 
 
