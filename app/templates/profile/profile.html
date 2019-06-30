@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container">
+    <h1>{{user.username| capitalize}}</h1>
+    <h2>Pitches</h2>
+    <div class="row">
+        {% for pitches in pitches %}
+        <div class="col-md-6">
+            <!-- Card Regular -->
+            <div class="card card-cascade">
+                <!-- Card image -->
+                <div class="view view-cascade overlay">
+                    <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <!-- Card content -->
+                <div class="card-body card-body-cascade text-center">
+                    <!-- Title -->
+                    <h4 class="card-title"><strong>{{pitches.pitch_title | capitalize}}</strong></h4>
+                    
+                    <p class="card-text">{{pitches.pitch}}</p>
+                    <p class="card-text">Upvotes {{pitches.pitch_upvotes}}</p>
+                    <p class="card-text">Downvotes {{pitches.pitch_downvotes}}</p>                    
+                </div>
+            </div>
+            <!-- Card Regular -->
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -65,6 +65,13 @@ def post_comment(id):
 
     return render_template('post_comment.html', comment_form=form, title=title,comments=comments , pitches = pitches)
 
-    
+@main.route('/user/<uname>/<int:id>')
+def profile(uname,id):
+    user = User.query.filter_by(username = uname).first()
+    pitches = Pitch.query.filter_by(user_id=id)
+    if user is None:
+        abort(404)
+
+    return render_template("profile/profile.html", user = user , pitches = pitches)
 
 

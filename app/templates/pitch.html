@@ -7,45 +7,57 @@
         <div class="row">
             {% for pitch in pitches %}
             <div class="col-md-6">
-                <div class="card card-cascade wider">
-                    <!-- Card image -->
-                    <div class="view view-cascade gradient-card-header peach-gradient">
-                        <!-- Title -->
-                        <h1 class="card-header-title mb-3">{{pitch.pitch_title| capitalize}}</h1>
-                        <!-- Text -->
+                <!-- Card Narrower -->
+                <div class="card card-cascade narrower">
 
-                    </div>
+                    <!-- Card image -->
+
                     <!-- Card content -->
-                    <div class="card-body card-body-cascade text-center">
+                    <div class="card-body card-body-cascade">
+
+                        <!-- Label -->
+                        <h5 class="blue-text pb-2 pt-1"><i
+                                class="fas fa-quote-left"></i>{{pitch.pitch_category| capitalize}}
+                        </h5>
+                        <!-- Title -->
+                        <h4 class="font-weight-bold card-title">{{pitch.pitch_title| capitalize}}</h4>
                         <!-- Text -->
-                        <p class="card-text">{{pitch.pitch}}</p>
+                        <p class="card-text">{{pitch.pitch| capitalize}}</p>
+                        <!-- Button -->
+
                         <div class="row">
                             <div class="col-md-6">
                                 <p> Downvotes {{pitch.pitch_upvotes}} </p>
-                                <a class="btn btn-unique"><i class="fas fa-thumbs-down"></i></a>
+                                <a class="btn btn-outline-primary waves-effect"><i class="fas fa-thumbs-down"></i></a>
                             </div>
                             <div class="col-md-4">
                                 <!-- Button -->
                                 <p>Upvotes {{pitch.pitch_downvotes}} </p>
+                                <button class="btn btn-outline-primary waves-effect"><i class="fas fa-thumbs-down"></i></a></button>
 
-                                <a class="btn btn-unique" type="submit"><i class="fas fa-thumbs-up"></i></a>
                             </div>
-                        </div> <!-- Button -->
+                        </div>
+
                     </div>
+
                     <!-- Card footer -->
                     <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
                         <ul class="list-unstyled list-inline font-small">
                             <li class="list-inline-item pr-2 white-text"><i
                                     class="far fa-clock pr-1"></i>{{pitch.posted}}
                             </li>
-                            <li class="list-inline-item pr-2"><a href=" {{url_for('.post_comment',id= pitch.id)}}" class="white-text">
-                                <i class="far fa-comments pr-1"></i>Comments</a></li>
+                            <li class="list-inline-item pr-2"><a href=" {{url_for('.post_comment',id= pitch.id)}}"
+                                    class="white-text">
+                                    <i class="far fa-comments pr-1"></i>Comments</a></li>
 
                         </ul>
+
                     </div>
 
                 </div>
-            </div>{% endfor %}
+                <!-- Card Narrower -->
+            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

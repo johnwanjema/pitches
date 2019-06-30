@@ -21,7 +21,7 @@
 
     </ul>
     <ul class="navbar-nav ml-auto nav-flex-icons">
-      <li style="color:white;padding:15px;">{{current_user.username}}</li>
+      <li style="color:white;padding:15px;">{{current_user.username | capitalize}}</li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
@@ -30,7 +30,7 @@
         <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
           {% if current_user.is_authenticated %}
 
-          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="{{url_for('main.profile',uname=current_user.username,id = current_user.id)}}">Profile</a>
           <a class="dropdown-item" href="{{url_for('auth.logout')}}">Sign Out</a>
           {% else %}
           <a class="dropdown-item" href="{{url_for('auth.login')}}">Log in</a>
