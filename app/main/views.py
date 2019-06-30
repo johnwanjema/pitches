@@ -22,8 +22,10 @@ def index():
 
 
 @main.route('/pitches')
-def Newpitch():
+@login_required
+def pitches():
     pitches =  Pitch.query.all()
+
 
     if pitch is None:
         abort(404)
@@ -37,7 +39,7 @@ def pitch():
 
     form = PitchForm()
     if form.validate_on_submit():
-        pitch = Pitch(pitch = form.pitch.data,name = form.name.data,upvote = 0, downvote = 0)
+        pitch = Pitch(pitch = form.pitch.data,pitch_title = form.pitch_title.data,pitch_category = form.pitch_category.data ,pitch_upvotes = 0, pitch_downvotes = 0)
         db.session.add(pitch)
         db.session.commit()
         return redirect(url_for('main.index'))
