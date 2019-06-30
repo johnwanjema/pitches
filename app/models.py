@@ -82,6 +82,23 @@ class Comments(db.Model):
         comments = Pitch.query.filter_by(pitches_id=id).all()          
         return comments
 
+class Category(db.Model):
+    __tablename__ = 'categories'
+
+    id = db.Column(db.Integer, primary_key=True)
+    category = db.Column(db.String(255))
+    pitch = db.relationship('Pitch',backref = 'user',lazy = "dynamic")
+    pitch_id = db.Column(db.Integer,db.ForeignKey("pitch.id"))
+
+    def save_category(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_categories(cls):
+        categories = Category.query.all()
+        return categories
+
     
 
     
