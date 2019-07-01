@@ -4,8 +4,9 @@
 
 <section>
     <div class="container">
+        <h2>INTERVIEW PITCHES</h2>
         <div class="row">
-            {% for pitch in pitches %}
+            {% for interview in interviews %}
             <div class="col-md-6">
                 <!-- Card Narrower -->
                 <div class="card card-cascade narrower">
@@ -17,23 +18,24 @@
 
                         <!-- Label -->
                         <h5 class="blue-text pb-2 pt-1"><i
-                                class="fas fa-quote-left"></i>{{pitch.pitch_category| capitalize}}
+                                class="fas fa-quote-left"></i>{{interview.pitch_title| capitalize}}
                         </h5>
                         <!-- Title -->
-                        <h4 class="font-weight-bold card-title">{{pitch.pitch_title| capitalize}}</h4>
+                        <h4 class="font-weight-bold card-title">{{interview.pitch_title| capitalize}}</h4>
                         <!-- Text -->
-                        <p class="card-text">{{pitch.pitch| capitalize}}</p>
+                        <p class="card-text">{{interview.pitch| capitalize}}</p>
                         <!-- Button -->
 
                         <div class="row">
                             <div class="col-md-6">
-                                <p> Downvotes {{pitch.pitch_upvotes}} </p>
+                                <p> Downvotes {{interview.pitch_upvotes}} </p>
                                 <a class="btn btn-outline-primary waves-effect"><i class="fas fa-thumbs-down"></i></a>
                             </div>
                             <div class="col-md-4">
                                 <!-- Button -->
-                                <p>Upvotes {{pitch.pitch_downvotes}} </p>
-                                <button class="btn btn-outline-primary waves-effect"><i class="fas fa-thumbs-down"></i></a></button>
+                                <p>Upvotes {{interview.pitch_downvotes}} </p>
+                                <button class="btn btn-outline-primary waves-effect"><i
+                                        class="fas fa-thumbs-down"></i></a></button>
 
                             </div>
                         </div>
@@ -44,16 +46,13 @@
                     <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
                         <ul class="list-unstyled list-inline font-small">
                             <li class="list-inline-item pr-2 white-text"><i
-                                    class="far fa-clock pr-1"></i>{{pitch.posted}}
+                                    class="far fa-clock pr-1"></i>{{interview.posted}}
                             </li>
-                            <li class="list-inline-item pr-2"><a href=" {{url_for('.post_comment',id= pitch.id)}}"
+                            <li class="list-inline-item pr-2"><a href=" {{url_for('.post_comment',id= interview.id)}}"
                                     class="white-text">
                                     <i class="far fa-comments pr-1"></i>Comments</a></li>
-
                         </ul>
-
                     </div>
-
                 </div>
                 <!-- Card Narrower -->
             </div>
@@ -62,5 +61,182 @@
     </div>
 </section>
 
+<section>
+    <div class="container">
+        <h2>Pickup_lines Pitches</h2>
+        <div class="row">
+            {% for pickups in pickups %}
+            <div class="col-md-6">
+                <!-- Card Narrower -->
+                <div class="card card-cascade narrower">
+
+                    <!-- Card image -->
+
+                    <!-- Card content -->
+                    <div class="card-body card-body-cascade">
+
+                        <!-- Label -->
+                        <h5 class="blue-text pb-2 pt-1"><i
+                                class="fas fa-quote-left"></i>{{pickups.pitch_title| capitalize}}
+                        </h5>
+                        <!-- Title -->
+                        <h4 class="font-weight-bold card-title">{{pickups.pitch_title| capitalize}}</h4>
+                        <!-- Text -->
+                        <p class="card-text">{{pickups.pitch| capitalize}}</p>
+                        <!-- Button -->
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p> Downvotes {{pickups.pitch_upvotes}} </p>
+                                <a class="btn btn-outline-primary waves-effect"><i class="fas fa-thumbs-down"></i></a>
+                            </div>
+                            <div class="col-md-4">
+                                <!-- Button -->
+                                <p>Upvotes {{pickups.pitch_downvotes}} </p>
+                                <button class="btn btn-outline-primary waves-effect"><i
+                                        class="fas fa-thumbs-down"></i></a></button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Card footer -->
+                    <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                        <ul class="list-unstyled list-inline font-small">
+                            <li class="list-inline-item pr-2 white-text"><i
+                                    class="far fa-clock pr-1"></i>{{pickups.posted}}
+                            </li>
+                            <li class="list-inline-item pr-2"><a href=" {{url_for('.post_comment',id= pickups.id)}}"
+                                    class="white-text">
+                                    <i class="far fa-comments pr-1"></i>Comments</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Card Narrower -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Products Pitches</h2>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-6">
+                <!-- Card Narrower -->
+                <div class="card card-cascade narrower">
+
+                    <!-- Card image -->
+
+                    <!-- Card content -->
+                    <div class="card-body card-body-cascade">
+
+                        <!-- Label -->
+                        <h5 class="blue-text pb-2 pt-1"><i
+                                class="fas fa-quote-left"></i>{{product.pitch_title| capitalize}}
+                        </h5>
+                        <!-- Title -->
+                        <h4 class="font-weight-bold card-title">{{product.pitch_title| capitalize}}</h4>
+                        <!-- Text -->
+                        <p class="card-text">{{product.pitch| capitalize}}</p>
+                        <!-- Button -->
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p> Downvotes {{product.pitch_upvotes}} </p>
+                                <a class="btn btn-outline-primary waves-effect"><i class="fas fa-thumbs-down"></i></a>
+                            </div>
+                            <div class="col-md-4">
+                                <!-- Button -->
+                                <p>Upvotes {{product.pitch_downvotes}} </p>
+                                <button class="btn btn-outline-primary waves-effect"><i
+                                        class="fas fa-thumbs-down"></i></a></button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Card footer -->
+                    <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                        <ul class="list-unstyled list-inline font-small">
+                            <li class="list-inline-item pr-2 white-text"><i
+                                    class="far fa-clock pr-1"></i>{{product.posted}}
+                            </li>
+                            <li class="list-inline-item pr-2"><a href=" {{url_for('.post_comment',id= product.id)}}"
+                                    class="white-text">
+                                    <i class="far fa-comments pr-1"></i>Comments</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Card Narrower -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<section>
+        <div class="container">
+            <h2>Promotion Pitches</h2>
+            <div class="row">
+                {% for promotion in promotions %}
+                <div class="col-md-6">
+                    <!-- Card Narrower -->
+                    <div class="card card-cascade narrower">
+    
+                        <!-- Card image -->
+    
+                        <!-- Card content -->
+                        <div class="card-body card-body-cascade">
+    
+                            <!-- Label -->
+                            <h5 class="blue-text pb-2 pt-1"><i
+                                    class="fas fa-quote-left"></i>{{promotion.pitch_title| capitalize}}
+                            </h5>
+                            <!-- Title -->
+                            <h4 class="font-weight-bold card-title">{{promotion.pitch_title| capitalize}}</h4>
+                            <!-- Text -->
+                            <p class="card-text">{{promotion.pitch| capitalize}}</p>
+                            <!-- Button -->
+    
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p> Downvotes {{promotion.pitch_upvotes}} </p>
+                                    <a class="btn btn-outline-primary waves-effect"><i class="fas fa-thumbs-down"></i></a>
+                                </div>
+                                <div class="col-md-4">
+                                    <!-- Button -->
+                                    <p>Upvotes {{promotion.pitch_downvotes}} </p>
+                                    <button class="btn btn-outline-primary waves-effect"><i
+                                            class="fas fa-thumbs-down"></i></a></button>
+    
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                        <!-- Card footer -->
+                        <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                            <ul class="list-unstyled list-inline font-small">
+                                <li class="list-inline-item pr-2 white-text"><i
+                                        class="far fa-clock pr-1"></i>{{promotion.posted}}
+                                </li>
+                                <li class="list-inline-item pr-2"><a href=" {{url_for('.post_comment',id= promotion.id)}}"
+                                        class="white-text">
+                                        <i class="far fa-comments pr-1"></i>Comments</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Card Narrower -->
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 
 {% endblock%}

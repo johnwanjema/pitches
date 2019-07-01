@@ -25,10 +25,14 @@ def index():
 @login_required
 def pitches():
     pitches =  Pitch.query.all()
-    if pitch is None:
-        return redirect(url_for('main.new_pitch'))
+    interview_pitch = Pitch.get_pitches_by_category('1')
+    pickup_lines = Pitch.get_pitches_by_category('2')
+    product_pitch = Pitch.get_pitches_by_category('3')
+    promotion_pitch = Pitch.get_pitches_by_category('4')  
+    if pitches is None:
+        return redirect(url_for('main.pitch'))
         title = "pitches"
-    return render_template("pitch.html", pitches = pitches )
+    return render_template("pitch.html", pitches = pitches, interviews = interview_pitch, pickups = pickup_lines,products = product_pitch,promotions = promotion_pitch )
 
 
 @main.route('/pitch', methods = ['GET','POST'])
