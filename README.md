@@ -10,8 +10,13 @@ This in an application that allows users will submit their one minute pitches. O
 
 ## Setup/Installation Requirements
 
-You need a web browser installed on your machine to run this program
-Clone the repository to your local machine from the online repository(https://github.com/johnwanjema/pitches)
+
+- Clone or download the Repo
+- Create a virtual environment
+- Edit the start.sh file with your email account and password
+- Run chmod a+x start.py
+- Run ./start.sh
+- Access the application through localhost:5000
 
 ## Live site
 
@@ -32,6 +37,8 @@ created application using
 | Log in    | email adress,password     |                           |
 | upvote    |                           | upvote increases by one   |
 | Downvote  |                           | downvote increases by one |
+
+
 
 ## Support and contact details
 
