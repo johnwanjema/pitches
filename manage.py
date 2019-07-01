@@ -4,7 +4,7 @@ from app import create_app,db
 from  flask_migrate import Migrate, MigrateCommand
 from app.models import User, Pitch
 
-app = create_app('default')
+app = create_app('production')
 
 manager = Manager(app)
 migrate = Migrate(app,db)
