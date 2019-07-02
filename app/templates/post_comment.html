@@ -9,10 +9,27 @@
         <p>{{comment.posted }}</p>
     </div>
 
+
+
+
+    <a href="/comment/{{pitch.id}}?upvote=1">
+        <i class="material-icons"></i>
+        <i class="btn btn-outline-primary waves-effect"><i class="fas fa-thumbs-down"></i></i>
+    </a>{{pitch.pitch_upvotes}}
+
+    <a href="/comment/{{pitch.id}}?downvote=1">
+        <i class="material-icons"></i>
+        <i class="btn btn-outline-primary waves-effect"><i class="fas fa-thumbs-down"></i></i>
+    </a>{{pitch.pitch_downvotes}}
 </div>
 
+
+
+
 {% endfor %}
-<div class="container">{{wtf.quick_form(comment_form)}}</div>
+<div class="container">{{wtf.quick_form(comment_form)}}
+
+</div>
 
 
 {% endblock%}

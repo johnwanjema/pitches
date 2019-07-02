@@ -38,6 +38,7 @@ def pitches():
 @main.route('/pitch', methods = ['GET','POST'])
 @login_required
 def pitch():  
+    
 
     form = PitchForm()
     if form.validate_on_submit():
@@ -54,7 +55,22 @@ def post_comment(id):
     
     form = CommentForm()
     title = 'post comment'
-    pitches = Pitch.query.filter_by(id=id).first()
+    pitch = Pitch.get_pitch(id)
+    if request.args.get("upvote"):
+        pitch.pitch_upvotes += 1
+
+        db.session.add(pitch)
+        db.session.commit()
+
+        return redirect("/comment/{pitch_id}".format(pitch_id=pitch.id)) 
+
+    elif request.args.get("downvote"):
+        pitch.pitch_downvotes += 1
+
+        db.session.add(pitch)
+        db.session.commit()
+
+        return redirect("/comment/{pitch_id}".format(pitch_id=pitch.id))
     comments = Comments.query.filter_by().all()
 
     if pitches is None:
@@ -67,7 +83,7 @@ def post_comment(id):
         db.session.commit()
         return redirect(url_for('main.pitches'))
 
-    return render_template('post_comment.html', comment_form=form, title=title,comments=comments , pitches = pitches)
+    return render_template('post_comment.html', comment_form=form, title=title,comments=comments , pitch = pitch)
 
 @main.route('/user/<uname>/<int:id>')
 def profile(uname,id):

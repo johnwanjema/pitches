@@ -60,7 +60,11 @@ class Pitch(db.Model):
     def save_pitch(self):
         db.session.add(self)
         db.session.commit()
-
+        
+    @classmethod
+    def get_pitch(cls,id):
+        pitch = Pitch.query.filter_by(id=id).first()
+        return pitch
     @classmethod
     def get_pitches(cls,id):
         pitches = Pitch.query.filter_by(id=id).all()

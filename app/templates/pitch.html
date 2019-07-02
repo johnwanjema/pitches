@@ -46,7 +46,7 @@
                     <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
                         <ul class="list-unstyled list-inline font-small">
                             <li class="list-inline-item pr-2 white-text"><i
-                                    class="far fa-clock pr-1"></i>{{interview.posted}}
+                                    class="far fa-clock pr-1"></i>{{interview.posted.strftime('%b %d, %Y')}}
                             </li>
                             <li class="list-inline-item pr-2"><a href=" {{url_for('.post_comment',id= interview.id)}}"
                                     class="white-text">
